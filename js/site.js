@@ -1,5 +1,4 @@
 //Controller Function
-//get values from page
 function getValues(){
     let fizzValue = document.getElementById("fizzValue").value;
     let buzzValue = document.getElementById("buzzValue").value;
@@ -9,20 +8,14 @@ function getValues(){
     let fizzBuzz = [];
     //second step of validation
     if(Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
-
-        //display array with replaced values
+        //generate array with replaced values
         let fizzBuzzArray = generateArray(fizzValue,buzzValue);
         fizzBuzz = fizzBuzzArray;
-        //displayNumbers(fizzValue,buzzValue);
-        //document.write(fizzBuzzArray);
-
     }
     else{
         alert("You Must Enter Integers")
     }
     displayNumbers(fizzBuzz);
-
-
 }
 
 //Logic Function
@@ -51,9 +44,6 @@ function generateArray(fizzValue,buzzValue){
     return fizzBuzzArray;
 }
 
-
-
-
 //Display Function
 function displayNumbers(fizzBuzz){
    //document.write(fizzBuzz);
@@ -61,26 +51,49 @@ function displayNumbers(fizzBuzz){
    let count = 0;
    let displayClasses =["Fizz", "Buzz", "FizzBuzz"];
    //setting boolean to false, if the indexed value is included in displayClasses
-   //alternate styling will be applied
+   //true value means alternate styling will be applied
    let inDisplayClasses = "";
    let className = "";
    for (let index = 0; index < fizzBuzz.length; index++) {
         let number = fizzBuzz[index];
         inDisplayClasses = displayClasses.includes(number);
-        if (count == 0) {
-            templateRows += `<tr><td class="${className}">${number}</td>`
-            count++;
-        }
-        else if(count == 4){
-            templateRows += `<td class="${className}">${number}</td></tr>`
-            count = 0;
-        }
-        else{
-            templateRows += `<td class="${className}">${number}</td>`
-            count++;
+        if (inDisplayClasses) {
+            className = lowercaseFirstLetter(number);
+            if (count == 0) {
+                templateRows += `<tr><td class="${className}">${number}</td>`
+                count++;
+            }
+            else if(count == 4){
+                templateRows += `<td class="${className}">${number}</td></tr>`
+                count = 0;
+            }
+            else{
+                templateRows += `<td class="${className}">${number}</td>`
+                count++;
+            }   
         } 
+        else {
+            className = "general";
+            if (count == 0) {
+                templateRows += `<tr><td class="${className}">${number}</td>`
+                count++;
+            }
+            else if(count == 4){
+                templateRows += `<td class="${className}">${number}</td></tr>`
+                count = 0;
+            }
+            else{
+                templateRows += `<td class="${className}">${number}</td>`
+                count++;
+            } 
+        }
+
+
    }
 
    document.getElementById("results").innerHTML = templateRows;
+}
 
+function lowercaseFirstLetter(word){
+    return word.charAt(0).toLowerCase() + word.slice(1);
 }

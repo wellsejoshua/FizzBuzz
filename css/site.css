@@ -7,6 +7,9 @@
     --fizzSecondary-color:#75fcce;
 }
 
+.general{
+    color: #292929;
+}
 .fizz{
     color: #75fcce;
 }
@@ -22,8 +25,12 @@ body{
 nav{
     background-color: var(--fizzPrimary-color);
 }
+.navbar-brand{
+    color: #75fcce;
+}
 nav .navbar-brand>a{
     color:var(--fizzSecondary-color);
+    
 }
 footer{
     background-color: var(--fizzPrimary-color);
@@ -62,9 +69,7 @@ footer .social>a:hover{
 .checklist >li i{
     color: var(--fizzSecondary-color);
 }
-.navbar-brand{
-    background-color: #75fcce;
-}
+
 
 
 code[class*="language-"],
@@ -76,7 +81,7 @@ code[class*="language-"],
 
 
 footer .logo>img{
-    width: 50%;
+    width: 40%;
 
 }
 
