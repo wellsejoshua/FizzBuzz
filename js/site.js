@@ -58,19 +58,25 @@ function generateArray(fizzValue,buzzValue){
 function displayNumbers(fizzBuzz){
    //document.write(fizzBuzz);
    let templateRows = "";
-   let count = 0
+   let count = 0;
+   let displayClasses =["Fizz", "Buzz", "FizzBuzz"];
+   //setting boolean to false, if the indexed value is included in displayClasses
+   //alternate styling will be applied
+   let inDisplayClasses = "";
+   let className = "";
    for (let index = 0; index < fizzBuzz.length; index++) {
         let number = fizzBuzz[index];
+        inDisplayClasses = displayClasses.includes(number);
         if (count == 0) {
-            templateRows += `<tr><td>${number}</td>`
+            templateRows += `<tr><td class="${className}">${number}</td>`
             count++;
         }
         else if(count == 4){
-            templateRows += `<td>${number}</td></tr>`
+            templateRows += `<td class="${className}">${number}</td></tr>`
             count = 0;
         }
         else{
-            templateRows += `<td>${number}</td>`
+            templateRows += `<td class="${className}">${number}</td>`
             count++;
         } 
    }

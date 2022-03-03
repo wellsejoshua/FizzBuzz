@@ -6,6 +6,16 @@
     --fizzPrimary-color:#9269f7;
     --fizzSecondary-color:#75fcce;
 }
+
+.fizz{
+    color: #75fcce;
+}
+.buzz{
+    color: #9269f7;
+}
+.fizzBuzz{
+    color: crimson;
+}
 body{
     color:var(--dark-color);
 }
